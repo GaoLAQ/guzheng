@@ -1,11 +1,20 @@
 <script lang="ts">
+import HeaderComponent from "../components/Header.vue";
 export default {
-    data: () => ({}),
+  components: {
+    HeaderComponent 
+  }
 }
 </script>
 
 <template>
-  <main>
-   <p> teachers </p>
-  </main>
+  <v-app> 
+    <HeaderComponent />
+    <p> Biography: 
+      Anqi Qu(born in 1996) is a Chinese instrument (Guzheng) performance and composer in London. As a performer, she is committed to the combination of classical and mordern music.
+      Qu has been commissioned by UK Chinese Ensemble, London Youlan Qin Society, collaborate with famous pipa and Quqin performer, Dr Cheng Yu. And honnred to join BBC 'Doctor Who' to play Guzheng for the Soundtrack background. 
+
+      Qu finished her Bachelor of Music degree in Shengyang conservatitry of music as a Guzheng performer under Prof. Chen Yao. Currently, she is also going to active her degree asa a composer in UK. 
+    </p>
+  </v-app>
 </template>

@@ -1,15 +1,16 @@
 <script lang="ts">
 import Content from "../components/Content.vue";
+
 export default {
-    data: () => ({}),
+  data: () => ({}),
   components: {
     Content,
   },
-}
+};
 </script>
 
 <template>
-  <main>
+  <v-app>
     <Content />
-  </main>
+  </v-app>
 </template>
