@@ -2,34 +2,38 @@
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiWechat, mdiEmail, mdiWhatsapp } from "@mdi/js";
 import hongShuIcon from "../assets/xiaohongshu.jpg";
+import axios from 'axios'
 
 export default {
   data: () => ({
+    msgObject: {
+      name: '', 
+      email: '',
+      content:''
+    }, 
     mdiWhatsappIcon: mdiWhatsapp,
     wechatIcon: mdiWechat,
     emailIcon: mdiEmail,
     hongShuIcon: hongShuIcon,
-    valid: true,
     nameRules: [
       (v) => !!v || "Name is required",
       (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
     ],
-    email: "",
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
     ],
-    select: null,
-    items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
   }),
   components: {
     SvgIcon,
   },
   methods: {
-    validate() {},
-    reset() {},
-    resetValidation() {},
+    validate() {
+      axios.post('http://localhost:3000/message', { data: this.msgObject }).then((response)=>
+        console.log(response)
+      ).catch((error)=> console.log(error))
+    },
   },
 };
 </script>
@@ -61,7 +65,7 @@ export default {
         <v-card-text class="white--text">
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-text-field
-              v-model="name"
+              v-model="msgObject.name"
               :counter="10"
               :rules="nameRules"
               label="Name"
@@ -69,15 +73,14 @@ export default {
             ></v-text-field>
 
             <v-text-field
-              v-model="email"
+              v-model="msgObject.email"
               :rules="emailRules"
               label="E-mail"
               required
             ></v-text-field>
 
             <v-textarea
-              v-model="select"
-              :items="items"
+              v-model="msgObject.content"
               :rules="[(v) => !!v || 'Item is required']"
               label="Leave Your Message"
               required

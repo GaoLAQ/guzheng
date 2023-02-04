@@ -5,6 +5,7 @@ import Teachers from "../views/AboutTeachers.vue";
 import About from "../views/AboutView.vue";
 import Shop from "../views/Shop.vue";
 import Opportunity from "../views/Opportunity.vue";
+import Message from "../views/Message.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,6 +47,15 @@ router.addRoute({
   // this generates a separate chunk (About.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
   component: () => Opportunity,
+});
+
+router.addRoute({
+  path: "/msg",
+  name: "message",
+  // route level code-splitting
+  // this generates a separate chunk (About.[hash].js) for this route
+  // which is lazy-loaded when the route is visited.
+  component: () => Message,
 });
 
 
