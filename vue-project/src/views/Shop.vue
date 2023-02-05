@@ -73,7 +73,9 @@ export default {
     },
   },
   methods: {
+    // @ts-ignore
     filteredProductList(product, category) {
+      // @ts-ignore
       return product.filter((item) => item.level === category);
     },
   },

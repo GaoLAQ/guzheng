@@ -1,4 +1,5 @@
 <script lang="ts">
+// @ts-ignore
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiWechat, mdiEmail, mdiWhatsapp } from "@mdi/js";
 import hongShuIcon from "../assets/xiaohongshu.jpg";
@@ -6,6 +7,7 @@ import axios from 'axios'
 
 export default {
   data: () => ({
+    valid:false,
     msgObject: {
       name: '', 
       email: '',
@@ -16,11 +18,15 @@ export default {
     emailIcon: mdiEmail,
     hongShuIcon: hongShuIcon,
     nameRules: [
+      // @ts-ignore
       (v) => !!v || "Name is required",
+      // @ts-ignore
       (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
     ],
     emailRules: [
+      // @ts-ignore
       (v) => !!v || "E-mail is required",
+      // @ts-ignore
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
     ],
     checkbox: false,

@@ -1,7 +1,12 @@
 <script lang="ts">
+interface CoreData{
+  '_id': String;
+  data: Object;
+}
 import HeaderComponent from "../components/Header.vue";
 import axios from "axios";
 import { mdiDeleteCircle } from "@mdi/js";
+// @ts-ignore
 import SvgIcon from "@jamescoyle/vue-icon";
 export default {
   data: () => ({
@@ -23,6 +28,7 @@ export default {
       });
   },
   methods: {
+    // @ts-ignore
     async deleteMessage(idx) {
       await axios.delete(`http://localhost:3000/message/${idx}`).catch((err) => {
         console.log("err: ", err);
@@ -42,16 +48,19 @@ export default {
           <v-row>
             <v-spacer></v-spacer>
             <v-btn icon elevation="0" class="ma-2">
+                   
               <svg-icon
                 type="mdi"
                 :path="mdiDeleteCircle"
-                @click="deleteMessage(list['_id'])"
+                
+                @click="deleteMessage(list['_id']<CoreData>)"
               ></svg-icon
             ></v-btn>
           </v-row>
           <v-row>            
             <v-card-text> 
-              <p> {{ list.data.content }} </p>
+
+              <p> {{ list?.data?.content}} </p>
             </v-card-text>
             <br/>
             <v-card-text>

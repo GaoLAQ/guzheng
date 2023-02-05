@@ -1,10 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
+// @ts-ignore
 import HomeView from "../views/HomeView.vue";
+// @ts-ignore
 import Lessons from "../views/AboutLessons.vue";
+// @ts-ignore
 import Teachers from "../views/AboutTeachers.vue";
+// @ts-ignore
 import About from "../views/AboutView.vue";
+// @ts-ignore
 import Shop from "../views/Shop.vue";
+// @ts-ignore
 import Opportunity from "../views/Opportunity.vue";
+// @ts-ignore
 import Message from "../views/Message.vue";
 
 const router = createRouter({
@@ -57,6 +64,5 @@ router.addRoute({
   // which is lazy-loaded when the route is visited.
   component: () => Message,
 });
-
 
 export default router;

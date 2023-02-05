@@ -5,11 +5,10 @@
       height="200px"
       cover
     ></v-img>
+    <v-card-title> {{ content?.title }} </v-card-title>
 
-    <v-card-title> {{ content.title }} </v-card-title>
-
-    <v-card-subtitle> {{ content.subtitle }}</v-card-subtitle>
-    <v-card-subtitle> Price: {{ content.price }} </v-card-subtitle>
+    <v-card-subtitle> {{ content?.subtitle }}</v-card-subtitle>
+    <v-card-subtitle> Price: {{ content?.price }} </v-card-subtitle>
 
     <!-- <v-card-actions>
       <v-spacer></v-spacer>
@@ -20,8 +19,9 @@
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
+// @ts-ignore
 import SvgIcon from "@jamescoyle/vue-icon";
 export default {
   props: {
