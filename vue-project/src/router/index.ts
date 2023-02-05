@@ -30,13 +30,13 @@ router.addRoute({ path: "/about", component: About });
 router.addRoute({
   path: "/lessons",
   name: "lessons",
-  component: () => Lessons,
+  component: Lessons,
 });
 
 router.addRoute({
   path: "/teachers",
   name: "teachers",
-  component: () => Teachers,
+  component: Teachers,
 });
 router.addRoute({
   path: "/shop",
@@ -44,7 +44,7 @@ router.addRoute({
   // route level code-splitting
   // this generates a separate chunk (About.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
-  component: () => Shop,
+  component: Shop,
 });
 
 router.addRoute({
@@ -53,7 +53,7 @@ router.addRoute({
   // route level code-splitting
   // this generates a separate chunk (About.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
-  component: () => Opportunity,
+  component: Opportunity,
 });
 
 router.addRoute({
@@ -62,7 +62,7 @@ router.addRoute({
   // route level code-splitting
   // this generates a separate chunk (About.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
-  component: () => Message,
+  component: Message,
 });
 
 export default router;

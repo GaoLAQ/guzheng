@@ -1,5 +1,6 @@
 const port = 3000;
 const express = require("express");
+const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -12,6 +13,7 @@ app.use(cors());
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname + "/public")));
 
 app.get("/message", (req, res) => {
   let messageList = [];
