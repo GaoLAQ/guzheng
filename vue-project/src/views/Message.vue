@@ -44,8 +44,7 @@ export default {
   <v-app>
     <HeaderComponent />
     <v-col class="ma-5">
-      <div v-for="list in messageData" 
-      :key="list" class="ma-3">
+      <div v-for="list in messageData" :key="list" class="ma-3">
         <v-card>
           <v-row>
             <v-spacer></v-spacer>
