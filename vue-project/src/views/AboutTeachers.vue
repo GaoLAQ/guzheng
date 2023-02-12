@@ -10,7 +10,7 @@ export default {
 <template>
   <v-app>
     <HeaderComponent />
-    <div class="ma-10">
+    <v-row class="ma-10">
       <p>
         Biography: Anqi Qu(born in 1996) is a Chinese instrument (Guzheng)
         performance and composer in London. As a performer, she is committed to
@@ -22,6 +22,6 @@ export default {
         Guzheng performer under Prof. Chen Yao. Currently, she is also going to
         active her degree asa a composer in UK.
       </p>
-    </div>
+    </v-row>
   </v-app>
 </template>

@@ -195,7 +195,7 @@ export default {
 .v-btn::before {
   background-color: transparent;
 }
-.v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line {
+/* .v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line {
   padding-inline-start: 7px;
   padding-inline-end: 9px;
 }
@@ -218,5 +218,5 @@ export default {
   letter-spacing: 0.009375em;
   line-height: 8px;
   text-transform: none;
-}
+} */
 </style>

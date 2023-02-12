@@ -3,21 +3,27 @@
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiWechat, mdiEmail, mdiWhatsapp } from "@mdi/js";
 import hongShuIcon from "../assets/xiaohongshu.jpg";
+import wechat from "../assets/wechat.jpg";
+import whatsapp from "../assets/whatsapp.jpg";
 import axios from "axios";
 import { useDisplay } from "vuetify";
 
 export default {
   data: () => ({
+    anQiEmail: "13066792615@163.com",
+    dialog: false,
     valid: false,
     msgObject: {
       name: "",
       email: "",
       content: "",
     },
+    whatsapp: whatsapp,
     mdiWhatsappIcon: mdiWhatsapp,
     wechatIcon: mdiWechat,
     emailIcon: mdiEmail,
     hongShuIcon: hongShuIcon,
+    wechat: wechat,
     nameRules: [
       // @ts-ignore
       (v) => !!v || "Name is required",
@@ -54,6 +60,9 @@ export default {
     },
   },
   methods: {
+    openModal() {
+      this.dialog = true;
+    },
     validate() {
       axios
         .post("http://localhost:3000/message", { data: this.msgObject })
@@ -81,12 +90,62 @@ export default {
             </v-col>
             <v-col>
               <v-btn class="mx-4 white--text" icon elevation="0">
-                <svg-icon type="mdi" :path="wechatIcon"></svg-icon>
+                <div class="text-center">
+                  <v-dialog v-model="dialog" width="auto">
+                    <template v-slot:activator="{ props }">
+                      <svg-icon
+                        type="mdi"
+                        :path="wechatIcon"
+                        @click="openModal()"
+                        v-bind="props"
+                      ></svg-icon>
+                    </template>
+
+                    <v-card>
+                      <v-card-text>
+                        <v-img
+                          :src="wechat"
+                          height="500px"
+                          width="500px"
+                        ></v-img>
+                      </v-card-text>
+                      <v-card-actions>
+                        <v-btn color="primary" block @click="dialog = false"
+                          >Close Dialog</v-btn
+                        >
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
+                </div>
               </v-btn>
             </v-col>
             <v-col>
               <v-btn class="mx-4 white--text" icon elevation="0">
-                <svg-icon type="mdi" :path="mdiWhatsappIcon"></svg-icon>
+                <v-dialog v-model="dialog" width="auto">
+                  <template v-slot:activator="{ props }">
+                    <svg-icon
+                      type="mdi"
+                      :path="mdiWhatsappIcon"
+                      @click="openModal()"
+                      v-bind="props"
+                    ></svg-icon>
+                  </template>
+
+                  <v-card>
+                    <v-card-text>
+                      <v-img
+                        :src="whatsapp"
+                        height="500px"
+                        width="500px"
+                      ></v-img>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-btn color="primary" block @click="dialog = false"
+                        >Close Dialog</v-btn
+                      >
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
               </v-btn>
             </v-col>
 
