@@ -1,6 +1,6 @@
 <script lang="ts">
-interface CoreData{
-  '_id': String;
+interface CoreData {
+  _id: String;
   data: Object;
 }
 import HeaderComponent from "../components/Header.vue";
@@ -10,8 +10,8 @@ import { mdiDeleteCircle } from "@mdi/js";
 import SvgIcon from "@jamescoyle/vue-icon";
 export default {
   data: () => ({
-    messageData: "",
-    mdiDeleteCircle: mdiDeleteCircle,
+    messageData: "" as string,
+    mdiDeleteCircle: mdiDeleteCircle as string,
   }),
   components: {
     HeaderComponent,
@@ -28,12 +28,13 @@ export default {
       });
   },
   methods: {
-    // @ts-ignore
-    async deleteMessage(idx) {
-      await axios.delete(`http://localhost:3000/message/${idx}`).catch((err) => {
-        console.log("err: ", err);
-      });
-        location.reload()
+    async deleteMessage(idx: number) {
+      await axios
+        .delete(`http://localhost:3000/message/${idx}`)
+        .catch((err: string) => {
+          console.log("err: ", err);
+        });
+      location.reload();
     },
   },
 };
@@ -43,29 +44,25 @@ export default {
   <v-app>
     <HeaderComponent />
     <v-col class="ma-5">
-      <div v-for="list in messageData" :key="list" class="ma-3">
+      <div v-for="list in messageData" 
+      :key="list" class="ma-3">
         <v-card>
           <v-row>
             <v-spacer></v-spacer>
             <v-btn icon elevation="0" class="ma-2">
-                   
               <svg-icon
                 type="mdi"
                 :path="mdiDeleteCircle"
-                
                 @click="deleteMessage(list['_id']<CoreData>)"
               ></svg-icon
             ></v-btn>
           </v-row>
-          <v-row>            
-            <v-card-text> 
-
-              <p> {{ list?.data?.content}} </p>
-            </v-card-text>
-            <br/>
+          <v-row>
             <v-card-text>
-              Information from: {{ list.data.email }}</v-card-text
-            >
+              <p>{{ list?.data?.content }}</p>
+            </v-card-text>
+            <br />
+            <v-card-text> Information from: {{ list.data.email }}</v-card-text>
           </v-row>
         </v-card>
       </div>

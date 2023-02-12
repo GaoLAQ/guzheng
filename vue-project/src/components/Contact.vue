@@ -33,6 +33,7 @@ export default {
   }),
   components: {
     SvgIcon,
+    
   },
   methods: {
     validate() {

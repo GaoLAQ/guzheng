@@ -10,6 +10,7 @@ export default {
 </script>
 
 <template>
+  
   <v-app>
     <Content />
   </v-app>
