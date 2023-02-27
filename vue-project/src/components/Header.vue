@@ -1,17 +1,17 @@
 <template>
-  <v-row class="ma-4">
-    <v-col cols="8" md="6" class="d-flex">
+  <v-row>
+    <v-col cols="8" md="7" class="d-flex">
       <span
         :class="[isTextWhite ? 'text-white' : '']"
         :size="textSize"
-        class="h2 body-xs-body-2"
+        class="h1 body-xs-body-2 logo-name ma-3"
         :style="`font-size:${textSize}; cursor: pointer`"
         @click="goToPage('/home')"
       >
         China | instrument | Guzheng
       </span>
       <span
-        class="ml-2 body-4 d-none d-md-flex"
+        class="ml-2 body-4 d-none d-md-flex ma-3"
         :class="[isTextWhite ? 'text-white' : '']"
         :style="`font-size:${textSize}; cursor: pointer`"
         @click="scrollDown()"
@@ -21,39 +21,34 @@
     </v-col>
     <v-spacer></v-spacer>
     <v-col cols="auto" class="d-none d-md-flex">
-      <v-btn
+      <span
         :size="size"
-        variant="text"
-        class="text-capitalize mr-1"
+        class="ma-3"
         :class="[isTextWhite ? 'text-white' : '']"
         @click="goToPage('/home')"
       >
         Home
-      </v-btn>
-      <v-btn
+      </span>
+
+      <span
         :size="size"
-        variant="text"
-        class="text-capitalize pr-1"
+        class="ma-3"
         :class="[isTextWhite ? 'text-white' : '']"
         @click="goToPage('/about')"
       >
         About
-      </v-btn>
-      <v-menu
-        open-on-hover
-        :close-on-content-click="false"
-        :location="location"
-      >
+      </span>
+
+      <v-menu open-on-hover :close-on-content-click="false">
         <template v-slot:activator="{ props }">
-          <v-btn
+          <span
             :size="size"
-            variant="text"
-            class="text-capitalize pr-1"
+            class="ma-3"
             :class="[isTextWhite ? 'text-white' : '']"
             v-bind="props"
           >
             Lessons
-          </v-btn>
+          </span>
         </template>
 
         <v-list class="responsiveMenu">
@@ -64,26 +59,24 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <v-btn
+      <span
         :size="size"
-        variant="text"
-        class="text-capitalize pr-1"
+        class="ma-3"
         :class="[isTextWhite ? 'text-white' : '']"
         @click="goToPage('/shop')"
       >
         Shop
-      </v-btn>
-      <v-btn
-        variant="text"
+      </span>
+      <span
         :size="size"
-        class="text-capitalize pr-1"
+        class="ma-3"
         :class="[isTextWhite ? 'text-white' : '']"
         @click="goToPage('/opportunity')"
       >
         Opptunitiy
-      </v-btn>
+      </span>
     </v-col>
-    <v-col cols="auto" class="d-flex d-md-none">
+    <v-col cols="auto" class="d-flex d-md-none shrink-icon">
       <v-menu>
         <template v-slot:activator="{ props }">
           <svg-icon
@@ -101,8 +94,10 @@
             :key="index"
             :value="index"
           >
-            <v-list-item-title @click="goToPage(item.link)">
-              <span :size="textSize"> {{ item.title }}</span>
+            <v-list-item-title>
+              <span class="list-item-title" @click="goToPage(item.link)">
+                {{ item.title }}</span
+              >
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -147,7 +142,7 @@ export default {
       const { name } = useDisplay();
       switch (name.value) {
         case "xs":
-          return "10px";
+          return "12px";
         case "sm":
           return "14px";
         case "md":
@@ -195,28 +190,17 @@ export default {
 .v-btn::before {
   background-color: transparent;
 }
-/* .v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line {
-  padding-inline-start: 7px;
-  padding-inline-end: 9px;
+.shrink-icon {
+  position: absolute;
+  right: -12px;
+  top: 5px;
+}
+.list-item-title {
+  font-size: 10px;
 }
 .v-list-item--density-default.v-list-item--one-line {
-  min-height: 33px;
+  min-height: 35px;
   padding-top: 4px;
   padding-bottom: 4px;
 }
-.v-list-item-title {
-  hyphens: auto;
-  overflow-wrap: normal;
-  overflow: hidden;
-  padding: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  word-break: normal;
-  word-wrap: break-word;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.009375em;
-  line-height: 8px;
-  text-transform: none;
-} */
 </style>

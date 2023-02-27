@@ -5,24 +5,27 @@ import HeaderComponent from "../components/Header.vue";
 </script>
 
 <template>
-  <v-img :src="img" class="background">
-    <HeaderComponent :isTextWhite="true" />
-  </v-img>
-  <br />
-  <v-row>
+  <v-row class="mb-1">
+    <img :src="img" class="background" />
+    <HeaderComponent class="header-component" :isTextWhite="true" />
+  </v-row>
+
+  <v-row class="mt-1">
     <Contact />
   </v-row>
 </template>
 
 <style scoped>
 .background {
-  max-width: 100%;
-}
-/* .background {
   width: 100%;
-  height: auto;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-} */
+}
+.header-component {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
 </style>
