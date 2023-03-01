@@ -144,7 +144,7 @@ export default {
       { title: "Lessons", link: "/lessons" },
       { title: "Teachers", link: "/teachers" },
       { title: "Shop", link: "/shop" },
-      { title: "Opptunity", link: "opptunity" },
+      { title: "Opportunity", link: "/opportunity" },
     ],
   }),
   components: {
