@@ -4,12 +4,15 @@ import guZhengImg from "../assets/guzheng_introduction.jpg";
 </script>
 <template>
   <v-app>
-    <HeaderComponent />
+    <HeaderComponent :isTextWhite="false" :isHome="false" />
     <v-row justify="center" class="mt-1">
-      <v-card class="ma-7" elevation="0" width="50%">
+      <v-card class="ma-7" elevation="0" width="100%">
         <v-card-title> Guzheng </v-card-title>
-        <v-img :src="guZhengImg" width="700px">
-          <v-card-text class="mt-10 text-black">
+        <v-img class="align-center" cover :src="guZhengImg">
+          <v-card-text
+            class="text-black"
+            style="font-size: 20px; padding: 10px; line-height: 1.8"
+          >
             The guzheng has various accounts for its origin. An early
             guzheng-like instrument is said to have been invented by Meng
             Tian,[6] a general of the Qin dynasty (221–206 BCE), largely
