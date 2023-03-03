@@ -4,14 +4,15 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiWechat, mdiEmail, mdiWhatsapp } from "@mdi/js";
 import hongShuIcon from "../assets/xiaohongshu.jpg";
 import wechat from "../assets/wechat.jpg";
-import whatsapp from "../assets/whatsapp.jpg";
+import whatsapp from "../assets/whatsapp.png";
 import axios from "axios";
 import { useDisplay } from "vuetify";
 
 export default {
   data: () => ({
     anQiEmail: "13066792615@163.com",
-    dialog: false,
+    dialog1: false,
+    dialog2: false,
     valid: false,
     msgObject: {
       name: "",
@@ -50,30 +51,34 @@ export default {
         case "sm":
           return true;
         case "md":
-          return false;
+          return true;
         case "lg":
           return false;
         case "xl":
           return false;
       }
-      return false;
     },
   },
   methods: {
-    openModal() {
-      this.dialog = true;
+    openModal(identifier: String) {
+      if (identifier === "wechat") {
+        this.dialog1 = true;
+      } else if (identifier === "whatsApp") {
+        this.dialog2 = true;
+      }
     },
     validate() {
       axios
         .post("http://localhost:3000/message", { data: this.msgObject })
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
+      this.$refs.form.reset();
     },
   },
 };
 </script>
 <template>
-  <v-footer dark padless>
+  <v-footer>
     <v-row justify="center">
       <v-card
         flat
@@ -91,12 +96,12 @@ export default {
             <v-col>
               <v-btn class="mx-4 white--text" icon elevation="0">
                 <div class="text-center">
-                  <v-dialog v-model="dialog" width="auto">
+                  <v-dialog v-model="dialog1" width="auto">
                     <template v-slot:activator="{ props }">
                       <svg-icon
                         type="mdi"
                         :path="wechatIcon"
-                        @click="openModal()"
+                        @click="openModal('wechat')"
                         v-bind="props"
                       ></svg-icon>
                     </template>
@@ -110,7 +115,11 @@ export default {
                         ></v-img>
                       </v-card-text>
                       <v-card-actions>
-                        <v-btn color="primary" block @click="dialog = false"
+                        <v-btn
+                          color="primary"
+                          block
+                          class="text-capitalize"
+                          @click="dialog1 = false"
                           >Close Dialog</v-btn
                         >
                       </v-card-actions>
@@ -121,12 +130,12 @@ export default {
             </v-col>
             <v-col>
               <v-btn class="mx-4 white--text" icon elevation="0">
-                <v-dialog v-model="dialog" width="auto">
+                <v-dialog v-model="dialog2" width="auto">
                   <template v-slot:activator="{ props }">
                     <svg-icon
                       type="mdi"
                       :path="mdiWhatsappIcon"
-                      @click="openModal()"
+                      @click="openModal('whatsApp')"
                       v-bind="props"
                     ></svg-icon>
                   </template>
@@ -140,7 +149,11 @@ export default {
                       ></v-img>
                     </v-card-text>
                     <v-card-actions>
-                      <v-btn color="primary" block @click="dialog = false"
+                      <v-btn
+                        class="text-capitalize"
+                        color="primary"
+                        block
+                        @click="dialog2 = false"
                         >Close Dialog</v-btn
                       >
                     </v-card-actions>
@@ -167,39 +180,44 @@ export default {
 
         <v-card-text class="white--text">
           <v-form ref="form" v-model="valid" lazy-validation>
-            <v-text-field
-              v-model="msgObject.name"
-              :counter="10"
-              :rules="nameRules"
-              label="Name"
-              required
-              :class="[textFieldSize ? 'shrink mx-4' : '']"
-            ></v-text-field>
+            <v-responsive class="mx-auto">
+              <v-text-field
+                v-model="msgObject.name"
+                :counter="10"
+                :rules="nameRules"
+                label="Name"
+                required
+                class="name-input"
+              ></v-text-field>
+            </v-responsive>
 
-            <v-text-field
-              v-model="msgObject.email"
-              :rules="emailRules"
-              label="E-mail"
-              required
-              :class="[textFieldSize ? 'shrink mx-4' : '']"
-            ></v-text-field>
-
-            <v-textarea
-              v-model="msgObject.content"
-              :rules="[(v) => !!v || 'Item is required']"
-              label="Your Message"
-              required
-              :class="[textFieldSize ? 'shrink mx-4' : '']"
-            ></v-textarea>
+            <v-responsive class="mx-auto">
+              <v-text-field
+                v-model="msgObject.email"
+                :rules="emailRules"
+                label="E-mail"
+                class="text-caption"
+                required
+              ></v-text-field>
+            </v-responsive>
+            <v-responsive class="mx-auto">
+              <v-textarea
+                v-model="msgObject.content"
+                :rules="[(v) => !!v || 'Item is required']"
+                label="Your Message"
+                required
+              ></v-textarea>
+            </v-responsive>
 
             <v-btn
               :disabled="!valid"
               color="success"
-              class="mr-4"
+              class="ma-0"
               @click="validate"
             >
               Submit
             </v-btn>
+            <br />
           </v-form>
         </v-card-text>
       </v-card>

@@ -88,7 +88,7 @@
         <template v-slot:activator="{ props }">
           <svg-icon
             type="mdi"
-            class="mt-4 mr-4"
+            class="svg-icon"
             :path="mdiListBox"
             v-bind="props"
             color="white"
@@ -167,7 +167,6 @@ export default {
         default:
           return "28px";
       }
-      return undefined;
     },
     size() {
       const { name } = useDisplay();
@@ -210,8 +209,8 @@ export default {
 }
 .shrink-icon {
   position: absolute;
-  right: -12px;
-  top: 5px;
+  right: 0px;
+  top: 15px;
 }
 .list-item-title {
   font-size: 10px;

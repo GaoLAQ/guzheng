@@ -3,7 +3,7 @@ import { RouterView } from "vue-router";
 import { defineComponent } from "vue";
 import HeaderComponent from "./components/Header.vue";
 export default defineComponent({
-  name:'App', 
+  name: "App",
   data: () => ({}),
   components: {
     HeaderComponent,
@@ -12,11 +12,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-app id="app">
+  <div id="app">
     <RouterView />
-  </v-app>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

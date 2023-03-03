@@ -1,17 +1,45 @@
 <script setup lang="ts">
 import HeaderComponent from "../components/Header.vue";
 import guZhengImg from "../assets/guzheng_introduction.jpg";
+import { useDisplay } from "vuetify";
+import { computed } from "vue";
+const textSize = computed(() => {
+  const { name } = useDisplay();
+  switch (name.value) {
+    case "xs":
+      return "12px";
+    case "sm":
+      return "18px";
+    case "md":
+      return "20px";
+    case "lg":
+      return "22px";
+    case "xl":
+      return "28px";
+    default:
+      return "28px";
+  }
+});
 </script>
 <template>
   <v-app>
-    <HeaderComponent :isTextWhite="false" :isHome="false" />
-    <v-row justify="center" class="mt-1">
-      <v-card class="ma-7" elevation="0" width="100%">
-        <v-card-title> Guzheng </v-card-title>
-        <v-img class="align-center" cover :src="guZhengImg">
+    <v-row>
+      <HeaderComponent
+        class="header-component"
+        :isTextWhite="false"
+        :isHome="false"
+      />
+    </v-row>
+    <br />
+    <br />
+    <v-row justify="center" class="mt-10">
+      <v-card class="ma-0" elevation="0">
+        <v-card-title class="ma-10"> Guzheng </v-card-title>
+        <v-img cover class="align-center ma-10" :src="guZhengImg">
           <v-card-text
-            class="text-black"
-            style="font-size: 20px; padding: 10px; line-height: 1.8"
+            class="text-black text-justify ma-5"
+            :style="`font-size:${textSize}`"
+            style="padding: 10px; line-height: 1.8"
           >
             The guzheng has various accounts for its origin. An early
             guzheng-like instrument is said to have been invented by Meng
@@ -42,4 +70,11 @@ import guZhengImg from "../assets/guzheng_introduction.jpg";
   </v-app>
 </template>
 
-<style></style>
+<style scoped>
+.header-component {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+</style>

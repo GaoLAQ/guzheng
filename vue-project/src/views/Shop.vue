@@ -84,14 +84,32 @@ export default {
 
 <template>
   <v-app>
-    <HeaderComponent />
-    <p class="ma-5">Dun huang Version</p>
-    <v-divider class="ma-5" />
-    <ShoppingItem class="ma-2" :productList="beginnerProductList" />
-    <v-divider class="ma-5" />
-    <ShoppingItem class="ma-2" :productList="intermediateProductList" />
-    <v-divider class="ma-5" />
-    <ShoppingItem class="ma-2" :productList="advancedProductList" />
-    <v-divider class="ma-5" />
+    <v-row>
+      <HeaderComponent
+        class="header-component"
+        :isTextWhite="false"
+        :isHome="false"
+      />
+    </v-row>
+    <br />
+    <br />
+    <br />
+    <v-row>
+      <v-divider class="ma-5" />
+      <ShoppingItem class="ma-2" :productList="beginnerProductList" />
+      <v-divider class="ma-5" />
+      <ShoppingItem class="ma-2" :productList="intermediateProductList" />
+      <v-divider class="ma-5" />
+      <ShoppingItem class="ma-2" :productList="advancedProductList" />
+      <v-divider class="ma-5" />
+    </v-row>
   </v-app>
 </template>
+<style scoped>
+.header-component {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+</style>

@@ -1,8 +1,28 @@
 <script lang="ts">
+import { useDisplay } from "vuetify";
 import HeaderComponent from "../components/Header.vue";
 export default {
   components: {
     HeaderComponent,
+  },
+  computed: {
+    textSize() {
+      const { name } = useDisplay();
+      switch (name.value) {
+        case "xs":
+          return "12px";
+        case "sm":
+          return "18px";
+        case "md":
+          return "20px";
+        case "lg":
+          return "22px";
+        case "xl":
+          return "28px";
+        default:
+          return "28px";
+      }
+    },
   },
 };
 </script>
@@ -19,7 +39,7 @@ export default {
 
     <v-row class="mt-0" justify="center">
       <v-card width="90%" elevation="0">
-        <v-card-text>
+        <v-card-text class="text-justify">
           Biography: Anqi Qu(born in 1996) is a Chinese instrument (Guzheng)
           performance and composer in London. As a performer, she is committed
           to the combination of classical and mordern music. Qu has been

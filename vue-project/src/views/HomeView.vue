@@ -14,10 +14,12 @@ import HeaderComponent from "../components/Header.vue";
         :isHome="true"
       />
     </v-row>
+    <br />
 
     <v-row class="mt-1">
       <Contact />
     </v-row>
+    <br />
   </v-app>
 </template>
 

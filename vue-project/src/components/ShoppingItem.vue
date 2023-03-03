@@ -11,15 +11,17 @@ export default {
 
 <template>
   <v-row>
-    <v-col cols="2">
-      <v-card class="ma-2" width="200px" height="auto" elevation="0">
-        <v-card-title> {{ productList.catergory.toUpperCase() }} </v-card-title>
+    <v-col cols="12" md="3" sm="6" class="mr-2">
+      <v-card class="ma-2" width="300px" height="auto" elevation="0">
+        <v-card-title>
+          {{ productList?.catergory.toUpperCase() }}
+        </v-card-title>
       </v-card>
     </v-col>
-    <v-col cols="10">
+    <v-col cols="12" md="9" sm="6" class="ml-2">
       <v-row>
         <v-card
-          v-for="product in productList.product"
+          v-for="product in productList?.product"
           class="ma-2"
           width="200px"
           height="auto"
