@@ -87,8 +87,6 @@ export default {
     <HeaderComponent class="ma-2" :isTextWhite="false" :isHome="false" />
   </v-row>
   <br />
-  <br />
-  <br />
   <v-row>
     <v-divider class="ma-5" />
     <ShoppingItem class="ma-2" :productList="beginnerProductList" />

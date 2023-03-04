@@ -9,12 +9,8 @@ export default {
 </script>
 
 <template>
-  <v-row>
-    <HeaderComponent
-      class="header-component"
-      :isTextWhite="false"
-      :isHome="false"
-    />
+  <v-row class="ma-2">
+    <HeaderComponent :isTextWhite="false" :isHome="false" />
   </v-row>
   <br />
   <v-row class="ma-5" justify="center">

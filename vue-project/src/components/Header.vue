@@ -58,9 +58,12 @@
 
         <v-list class="responsiveMenu">
           <v-list-item v-for="(item, index) in items" :key="index">
-            <v-list-item-title @click="goToPage(item.link)">{{
-              item.title
-            }}</v-list-item-title>
+            <v-list-item-title
+              class="text-center"
+              @click="goToPage(item.link)"
+              style="cursor: pointer"
+              >{{ item.title }}</v-list-item-title
+            >
           </v-list-item>
         </v-list>
       </v-menu>

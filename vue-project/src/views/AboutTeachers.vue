@@ -59,14 +59,14 @@ export default {
               </v-avatar>
             </v-col>
 
-            <v-col class="hidden-xs-only text-left ms-2" sm="5" md="3">
+            <v-col cols="3" class="hidden-xs-only text-left ms-2" sm="5" md="3">
               <strong v-html="message.name"></strong>
               <span v-if="message.total" class="text-grey">
                 &nbsp;({{ message.total }})
               </span>
             </v-col>
 
-            <v-col class="text-no-wrap text-left" cols="5" sm="3">
+            <v-col class="ma-3 text-no-wrap text-left" cols="5" sm="3">
               <v-chip
                 v-if="message.new"
                 :color="`${message.color}-lighten-1`"
