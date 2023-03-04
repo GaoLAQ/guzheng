@@ -16,6 +16,7 @@ export default {
       :isHome="false"
     />
   </v-row>
+  <br />
   <v-row class="ma-5" justify="center">
     <v-col v-for="n in 3" :key="n" class="d-flex" cols="4">
       <v-img
