@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 // @ts-ignore
-import HomeView from "../views/HomeView.vue";
+import HomeView from "../views/Home.vue";
 // @ts-ignore
-import Lessons from "../views/AboutLessons.vue";
+import Lessons from "../views/Lessons.vue";
 // @ts-ignore
-import Teachers from "../views/AboutTeachers.vue";
+import Teachers from "../views/Teachers.vue";
 // @ts-ignore
-import About from "../views/AboutView.vue";
+import About from "../views/About.vue";
 // @ts-ignore
 import Shop from "../views/Shop.vue";
 // @ts-ignore

@@ -25,12 +25,11 @@ const textSize = computed(() => {
   <v-row class="ma-2">
     <HeaderComponent :isTextWhite="false" :isHome="false" />
   </v-row>
-  <br />
-  <br />
-  <v-row justify="center" class="mt-10">
-    <v-card class="ma-0" elevation="0">
-      <v-card-title class="ma-10"> Guzheng </v-card-title>
-      <v-img cover class="align-center ma-10" :src="guZhengImg">
+
+  <v-row justify="center" class="mt-0">
+    <v-card class="ma-2" elevation="0">
+      <v-card-title class="ml-5"> Guzheng </v-card-title>
+      <v-img cover class="align-center ma-5" :src="guZhengImg">
         <v-card-text
           class="text-black text-justify ma-5"
           :style="`font-size:${textSize}`"

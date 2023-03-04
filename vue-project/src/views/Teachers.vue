@@ -1,14 +1,14 @@
 <script lang="ts">
 import { useDisplay } from "vuetify";
 import HeaderComponent from "../components/Header.vue";
+import teacherAvatar from "../assets/girl.png";
 export default {
   data: () => ({
     messages: [
       {
-        avatar:
-          "https://www.google.co.uk/url?sa=i&url=https%3A%2F%2Favatars.alphacoders.com%2Favatars%2Fview%2F102943&psig=AOvVaw2w1fiEvS76IpGwktNiJ3QM&ust=1677974216269000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCIjo-Zr7wP0CFQAAAAAdAAAAABAE",
+        avatar: teacherAvatar,
         name: "Anqi Qu",
-        title: "Welcome to study Chinese Guzheng",
+        title: "Welcome to study Guzheng",
         excerpt: "Thank you for joining our community...",
       },
     ],
@@ -51,11 +51,8 @@ export default {
         <v-expansion-panel-title>
           <v-row align="center" class="spacer" no-gutters>
             <v-col cols="4" sm="2" md="1">
-              <v-avatar size="72px">
-                <v-img
-                  alt="Avatar"
-                  src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
-                ></v-img>
+              <v-avatar size="42px">
+                <v-img alt="Avatar" :src="message.avatar"></v-img>
               </v-avatar>
             </v-col>
 
@@ -76,7 +73,7 @@ export default {
               >
                 {{ message.new }} new
               </v-chip>
-              <strong v-html="message.title"></strong>
+              <span class="pa-3" v-html="message.title"></span>
             </v-col>
 
             <v-col
@@ -90,7 +87,7 @@ export default {
         </v-expansion-panel-title>
 
         <v-expansion-panel-text>
-          <v-card-text v-text="lorem"></v-card-text>
+          <v-card-text class="text-justify" v-text="lorem"></v-card-text>
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>

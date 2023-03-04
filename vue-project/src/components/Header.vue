@@ -83,7 +83,7 @@
         :class="[isTextWhite ? 'text-white' : '']"
         @click="goToPage('/opportunity')"
       >
-        Opptunitiy
+        Opportunitiy
       </v-btn>
     </v-col>
     <v-col cols="auto" class="d-flex d-lg-none shrink-icon">
