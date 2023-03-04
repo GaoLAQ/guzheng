@@ -39,6 +39,12 @@ export default {
       }
     },
   },
+  methods: {
+    increment() {
+      this.$store.commit("increment");
+      console.log(this.$store.state.count);
+    },
+  },
 };
 </script>
 
@@ -91,6 +97,11 @@ export default {
         consotivate
       </v-list-item>
     </v-list>
+  </v-row>
+  <v-row>
+    hello
+    {{ $store.state.count }}
+    <v-btn class="ma-10" @click="increment">incremental +1</v-btn>
   </v-row>
 </template>
 
