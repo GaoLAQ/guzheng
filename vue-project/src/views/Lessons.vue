@@ -40,7 +40,7 @@ export default {
 </script>
 
 <template>
-  <v-row class="mb-1">
+  <v-row class="mb-10">
     <HeaderComponent
       class="header-component"
       :isTextWhite="false"
@@ -52,7 +52,7 @@ export default {
 
   <v-row class="ma-5">
     <v-col cols="12">
-      <v-row justify="space-around">
+      <v-row justify="space-around" class="ma-5">
         <h1 class="ma-5" :style="`font-size:${textSize}`">
           45 mins Gu Zheng trial
         </h1>
@@ -61,7 +61,6 @@ export default {
     <v-col>
       <v-row>
         <ClassCard class="ma-1" :content="oneToOneContent" />
-
         <ClassCard class="ma-1" :content="groupContent" />
       </v-row>
     </v-col>
