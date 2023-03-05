@@ -25,11 +25,4 @@ export default {
     </v-col>
   </v-row>
 </template>
-<style scoped>
-.header-component {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-}
-</style>
+<style scoped></style>

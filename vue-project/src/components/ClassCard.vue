@@ -22,7 +22,10 @@ import { mdiChevronUp, mdiChevronDown } from "@mdi/js";
 // @ts-ignore
 import SvgIcon from "@jamescoyle/vue-icon";
 import { useDisplay } from "vuetify";
+import { style } from "../mixins/style.js";
+
 export default {
+  mixins: [style],
   props: {
     content: {
       type: Object,
@@ -38,21 +41,10 @@ export default {
   },
   computed: {
     textSize() {
-      const { name } = useDisplay();
-      switch (name.value) {
-        case "xs":
-          return "12px";
-        case "sm":
-          return "18px";
-        case "md":
-          return "20px";
-        case "lg":
-          return "22px";
-        case "xl":
-          return "28px";
-        default:
-          return "28px";
-      }
+      const {
+        name: { value },
+      } = useDisplay();
+      return this.textSizeFunc(value);
     },
   },
 };

@@ -1,13 +1,9 @@
 <script lang="ts">
 import { RouterView } from "vue-router";
 import { defineComponent } from "vue";
-import HeaderComponent from "./components/Header.vue";
 export default defineComponent({
   name: "App",
   data: () => ({}),
-  components: {
-    HeaderComponent,
-  },
 });
 </script>
 
@@ -17,4 +13,12 @@ export default defineComponent({
   </div>
 </template>
 
-<style scoped></style>
+<style>
+.header-component {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: red;
+}
+</style>
