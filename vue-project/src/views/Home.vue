@@ -29,10 +29,4 @@ import HeaderComponent from "../components/Header.vue";
   top: 0;
   left: 0;
 }
-.header-component {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-}
 </style>

@@ -1,25 +1,25 @@
-<script setup lang="ts">
+<script lang="ts">
 import HeaderComponent from "../components/Header.vue";
 import guZhengImg from "../assets/guzheng_introduction.jpg";
 import { useDisplay } from "vuetify";
-import { computed } from "vue";
-const textSize = computed(() => {
-  const { name } = useDisplay();
-  switch (name.value) {
-    case "xs":
-      return "12px";
-    case "sm":
-      return "18px";
-    case "md":
-      return "20px";
-    case "lg":
-      return "22px";
-    case "xl":
-      return "28px";
-    default:
-      return "28px";
-  }
-});
+import { style } from "../mixins/style.js";
+export default {
+  mixins: [style],
+  data: () => ({
+    guZhengImg: guZhengImg,
+  }),
+  components: {
+    HeaderComponent,
+  },
+  computed: {
+    textSize() {
+      const {
+        name: { value },
+      } = useDisplay();
+      return this.textSizeFunc(value);
+    },
+  },
+};
 </script>
 <template>
   <v-row class="ma-2">

@@ -65,6 +65,24 @@ const store = createStore({
       ],
     };
   },
+  getters: {
+    changeTextSize(state, str) {
+      switch (str) {
+        case "xs":
+          return "12px";
+        case "sm":
+          return "18px";
+        case "md":
+          return "20px";
+        case "lg":
+          return "22px";
+        case "xl":
+          return "28px";
+        default:
+          return "28px";
+      }
+    },
+  },
   mutations: {
     increment(state) {
       state.count++;

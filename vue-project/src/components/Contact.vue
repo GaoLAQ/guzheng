@@ -6,9 +6,10 @@ import hongShuIcon from "../assets/xiaohongshu.jpg";
 import wechat from "../assets/wechat.jpg";
 import whatsapp from "../assets/whatsapp.png";
 import axios from "axios";
-import { useDisplay } from "vuetify";
+import { style } from "../mixins/style.js";
 
 export default {
+  mixins: [style],
   data: () => ({
     anQiEmail: "13066792615@163.com",
     dialog1: false,
@@ -41,23 +42,6 @@ export default {
   }),
   components: {
     SvgIcon,
-  },
-  computed: {
-    textFieldSize() {
-      const { name } = useDisplay();
-      switch (name.value) {
-        case "xs":
-          return true;
-        case "sm":
-          return true;
-        case "md":
-          return true;
-        case "lg":
-          return false;
-        case "xl":
-          return false;
-      }
-    },
   },
   methods: {
     openModal(identifier: String) {
