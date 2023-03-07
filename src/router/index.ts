@@ -57,7 +57,7 @@ router.addRoute({
 });
 
 router.addRoute({
-  path: "/msg",
+  path: "/message",
   name: "message",
   // route level code-splitting
   // this generates a separate chunk (About.[hash].js) for this route
