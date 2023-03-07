@@ -19,7 +19,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get("http://localhost:3000/message")
+      .get("https://guzheng-backend.onrender.com/message")
       .then((item) => {
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", item.data);
         this.messageData = item.data;
@@ -31,7 +31,7 @@ export default {
   methods: {
     async deleteMessage(idx: number) {
       await axios
-        .delete(`http://localhost:3000/message/${idx}`)
+        .delete(`https://guzheng-backend.onrender.com/message/${idx}`)
         .catch((err: string) => {
           console.log("err: ", err);
         });
