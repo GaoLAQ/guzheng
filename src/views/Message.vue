@@ -18,23 +18,23 @@ export default {
     SvgIcon,
   },
   async mounted() {
-    // await axios
-    //   .get("https://guzheng-backend.onrender.com/message")
-    //   .then((item) => {
-    //     console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", item.data);
-    //     this.messageData = item.data;
-    //   })
-    //   .catch((err) => {
-    //     console.log("err: ", err);
-    //   });
+    await axios
+      .get("https://guzheng-backend.onrender.com/message")
+      .then((item) => {
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", item.data);
+        this.messageData = item.data;
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
   },
   methods: {
     async deleteMessage(idx: number) {
-      // await axios
-      //   .delete(`https://guzheng-backend.onrender.com/message/${idx}`)
-      //   .catch((err: string) => {
-      //     console.log("err: ", err);
-      //   });
+      await axios
+        .delete(`https://guzheng-backend.onrender.com/message/${idx}`)
+        .catch((err: string) => {
+          console.log("err: ", err);
+        });
       location.reload();
     },
   },
@@ -50,7 +50,7 @@ export default {
           <svg-icon
             type="mdi"
             :path="mdiDeleteCircle"
-            @click="deleteMessage(list['_id']<CoreData>)"
+            @click="deleteMessage(list['_id'])"
           ></svg-icon
         ></v-btn>
         <v-row justify="center">
