@@ -59,6 +59,7 @@ export default {
         </v-card-text>
       </v-img>
     </v-card>
+    <v-btn @click="() => $router.push('message')"> </v-btn>
   </v-row>
 </template>
 
