@@ -54,11 +54,16 @@ export default {
           ></svg-icon
         ></v-btn>
         <v-row justify="center">
-          <v-card-title class="ml-10"> {{ list?.content }}</v-card-title>
+          <v-col>
+            <v-card-title class="ml-10">User: {{ list?.name }}</v-card-title>
+          </v-col>
+          <v-col>
+            <v-card-title class="ml-10"> {{ list?.content }}</v-card-title>
 
-          <v-card-actions class="ml-10">
-            Information from: {{ list?.email }}</v-card-actions
-          >
+            <v-card-actions class="ml-10">
+              Information from: {{ list?.email }}</v-card-actions
+            >
+          </v-col>
         </v-row>
       </v-card>
     </div>
