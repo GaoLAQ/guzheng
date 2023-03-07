@@ -27,6 +27,7 @@ export default {
   </v-row>
 
   <v-row justify="center" class="mt-0">
+    <v-btn @click="() => $router.push('message')"> msg </v-btn>
     <v-card class="ma-2" elevation="0">
       <v-card-title class="ml-5"> Guzheng </v-card-title>
       <v-img cover class="align-center ma-5" :src="guZhengImg">
@@ -59,7 +60,6 @@ export default {
         </v-card-text>
       </v-img>
     </v-card>
-    <v-btn @click="() => $router.push('message')"> msg </v-btn>
   </v-row>
 </template>
 
