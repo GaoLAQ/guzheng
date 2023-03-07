@@ -10,7 +10,7 @@ import { mdiDeleteCircle } from "@mdi/js";
 import SvgIcon from "@jamescoyle/vue-icon";
 export default {
   data: () => ({
-    messageData: "" as string,
+    messageData: [],
     mdiDeleteCircle: mdiDeleteCircle as string,
   }),
   components: {
@@ -21,6 +21,7 @@ export default {
     await axios
       .get("http://localhost:3000/message")
       .then((item) => {
+        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!", item.data);
         this.messageData = item.data;
       })
       .catch((err) => {
@@ -41,30 +42,34 @@ export default {
 </script>
 
 <template>
-  <v-app>
-    <HeaderComponent />
-    <v-col class="ma-5">
-      <div v-for="list in messageData" :key="list" class="ma-3">
-        <v-card>
-          <v-row>
-            <v-spacer></v-spacer>
-            <v-btn icon elevation="0" class="ma-2">
-              <svg-icon
-                type="mdi"
-                :path="mdiDeleteCircle"
-                @click="deleteMessage(list['_id']<CoreData>)"
-              ></svg-icon
-            ></v-btn>
-          </v-row>
-          <v-row>
-            <v-card-text>
-              <p>{{ list?.data?.content }}</p>
-            </v-card-text>
-            <br />
-            <v-card-text> Information from: {{ list.data.email }}</v-card-text>
-          </v-row>
-        </v-card>
-      </div>
-    </v-col>
-  </v-app>
+  <HeaderComponent />
+  <v-col class="ma-5">
+    <div v-for="list in messageData" :key="list" class="ma-3">
+      <v-card>
+        <v-btn icon elevation="0" class="ma-0">
+          <svg-icon
+            type="mdi"
+            :path="mdiDeleteCircle"
+            @click="deleteMessage(list['_id']<CoreData>)"
+          ></svg-icon
+        ></v-btn>
+        <v-row justify="center">
+          <v-card-title class="ml-10"> {{ list?.content }}</v-card-title>
+
+          <v-card-actions class="ml-10">
+            Information from: {{ list?.email }}</v-card-actions
+          >
+        </v-row>
+      </v-card>
+    </div>
+  </v-col>
 </template>
+
+<style scoped>
+.header-component {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+</style>
